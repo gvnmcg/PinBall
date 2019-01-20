@@ -13,5 +13,14 @@ class GameLoop {
 
     GameLoop(){
 
+        display.ball = ball;
+        display.board = board;
+        display.score = score;
+
+        display.resetButton.setOnMouseClicked(inputState.handleReset());
+        display.playButton.setOnMouseClicked(inputState.handlePlay());
+
+
+
     }
 }
