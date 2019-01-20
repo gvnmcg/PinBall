@@ -19,6 +19,8 @@ public class Main extends Application {
 
         primaryStage.setScene(new Scene(mainGameLoop.display.layout, 500, 800));
 
+        primaryStage.show();
+
 
     }
 }
