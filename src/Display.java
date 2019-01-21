@@ -29,18 +29,10 @@ class Display {
         Group root = new Group();
         ballView = new Circle(50);
 
+//        ballView.setFill(Color.RED);
+//        ballView.setStroke(Color.BLACK);
 
-        layout.setCenter(root);
-
-        //Our tool for drawing the board:
-        Canvas canvas = new Canvas(500,600);
-        root.getChildren().add(canvas);
-        gc = canvas.getGraphicsContext2D();
-
-        gc.setFill(Color.FORESTGREEN);
-        gc.fillOval(10, 10, 200, 200);
-
-
+        setupCanvas(root);
 
         //Input & Score View
         HBox hBox = new HBox();
@@ -54,16 +46,52 @@ class Display {
 
     }
 
-    void paintBall(Ball ball){
+    void setupCanvas(Group root){
+        layout.setCenter(root);
+
+        //Our tool for drawing the board:
+        Canvas canvas = new Canvas(500,600);
+        root.getChildren().add(canvas);
+        gc = canvas.getGraphicsContext2D();
+
+        gc.setFill(Color.FORESTGREEN);
+        gc.setStroke(Color.DIMGREY);
+        gc.setLineWidth(40);
+        gc.fillOval(10, 10, 200, 200);
+    }
+
+    void paintComponents(Board board, Ball ball){
+
+        paintTiles(board);
+        paintBall(ball);
+
+    }
+
+    private void paintBall(Ball ball){
+        gc.setFill(Color.RED);
+        gc.setStroke(Color.BLACK);
         gc.fillOval(ball.getX(), ball.getY(), 50,50);
     }
 
-    void paintTiles(Board board){
+    private void paintTiles(Board board){
 
         //paint all 30 blue
         gc.setFill(Color.DARKBLUE);
+        gc.setStroke(Color.LIGHTBLUE);
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 6; j++) {
+                gc.fillRect(i * 100, j * 100, 100, 100);
+            }
+        }
 
         //plaint the choosen ones orange
+
+        gc.setFill(Color.ORANGE);
+        gc.setStroke(Color.FORESTGREEN);
+        for (Integer i : board.targets){
+            gc.fillRect(500/i, 600 % i, 100, 100);
+        }
 
     }
 }

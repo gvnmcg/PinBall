@@ -28,7 +28,7 @@ class GameLoop {
             public void handle(long now){
                 System.out.println(" wow");
                 ball.move();
-                display.paintBall(ball);
+                display.paintComponents(board, ball);
             }
         };
 
