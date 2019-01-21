@@ -1,3 +1,5 @@
+import javafx.animation.AnimationTimer;
+
 /**
  * Controls the Game
  */
@@ -8,19 +10,38 @@ class GameLoop {
     Display display = new Display();
 
     Ball ball = new Ball();
+    AnimationTimer animationTimer;
+
     Board board = new Board();
     Score score = new Score();
 
     GameLoop(){
 
-        display.ball = ball;
-        display.board = board;
-        display.score = score;
+        animationTimer = new AnimationTimer() {
+            @Override
+            public void handle(long now){
+                System.out.println(" wow");
+                ball.move();
+                display.paintBall(ball);
+            }
+        };
 
-        display.resetButton.setOnMouseClicked(inputState.handleReset());
-        display.playButton.setOnMouseClicked(inputState.handlePlay());
+        //add inputState EventHandlers to Displays buttons
+        display.resetButton.setOnMouseClicked(inputState.handleReset(this));
+        display.playButton.setOnMouseClicked(inputState.handlePlay(this));
 
 
+    }
 
+    void reset(){
+        ball.reset();
+        board.reset();
+        score.reset();
+
+        animationTimer.stop();
+    }
+
+    void play(){
+        animationTimer.start();
     }
 }
