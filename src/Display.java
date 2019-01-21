@@ -6,7 +6,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+
+import java.util.ArrayList;
 
 /**
  * GUI display, update whats provides by the game loop
@@ -14,6 +17,7 @@ import javafx.scene.text.Text;
 class Display {
 
     Circle ballView ;
+    ArrayList<Rectangle> tileViews = new ArrayList<>();
 
     private Text scoreView = new Text("sup?");
 
@@ -27,12 +31,22 @@ class Display {
 
         //Board View
         Group root = new Group();
-        ballView = new Circle(50);
+        layout.setCenter(root);
 
-//        ballView.setFill(Color.RED);
-//        ballView.setStroke(Color.BLACK);
+        Rectangle r;
+        for (int i = 0; i < 30; i++) {
+            r = new Rectangle((i % 6) * 100 , (int)((100 * i + 1)/6),100, 100);
+            r.setFill(Color.FORESTGREEN);
+            r.setStroke(Color.DIMGREY);
+            tileViews.add(r);
+            root.getChildren().add(r);
+        }
 
-        setupCanvas(root);
+        ballView = new Circle(10);
+
+        ballView.setFill(Color.RED);
+        ballView.setStroke(Color.BLACK);
+        root.getChildren().add(ballView);
 
         //Input & Score View
         HBox hBox = new HBox();
@@ -46,8 +60,14 @@ class Display {
 
     }
 
+    void moveBall(Ball ball){
+
+        ballView.setCenterX(ball.getX());
+        ballView.setCenterY(ball.getY());
+
+    }
+
     void setupCanvas(Group root){
-        layout.setCenter(root);
 
         //Our tool for drawing the board:
         Canvas canvas = new Canvas(500,600);
@@ -62,6 +82,7 @@ class Display {
 
     void paintComponents(Board board, Ball ball){
 
+        if (gc == null) return;
         paintTiles(board);
         paintBall(ball);
 
