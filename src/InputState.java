@@ -7,7 +7,11 @@ import javafx.scene.input.MouseEvent;
  */
 public class InputState {
 
-
+    /**
+     * Handler method for reset button
+     * @param gameLoop containing reset GameLoop control
+     * @return reset Handler
+     */
     public EventHandler<MouseEvent> handleReset(GameLoop gameLoop) {
 
         return new EventHandler<MouseEvent>() {
@@ -19,6 +23,11 @@ public class InputState {
         };
     }
 
+    /**
+     * Handler Method to play, or teh ball in motion
+     * @param gameLoop containing the play Gameloop Control
+     * @return play Handler
+     */
     public EventHandler<MouseEvent> handlePlay(GameLoop gameLoop) {
         return new EventHandler<MouseEvent>() {
             @Override

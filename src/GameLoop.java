@@ -5,12 +5,18 @@ import javafx.animation.AnimationTimer;
  */
 class GameLoop {
 
+    //Event handlers for human input
     InputState inputState = new InputState();
 
+    //Layout and Graphical components
     Display display = new Display();
 
+    //The only moving part, ball, uses a
+    //timer calling move and its redisplay
+    //method
     Ball ball = new Ball();
     AnimationTimer animationTimer;
+
 
     Board board = new Board();
     Score score = new Score();
