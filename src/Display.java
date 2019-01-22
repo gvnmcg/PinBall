@@ -16,8 +16,10 @@ import java.util.ArrayList;
  */
 class Display {
 
+    private Group root;
+
     Circle ballView ;
-    ArrayList<Rectangle> tileViews = new ArrayList<>();
+    ArrayList<Rectangle> tileViews;
 
     private Text scoreView = new Text("sup?");
 
@@ -29,24 +31,14 @@ class Display {
 
     Display(){
 
-        //Board View
-        Group root = new Group();
+        root = new Group();
         layout.setCenter(root);
 
-        Rectangle r;
-        for (int i = 0; i < 30; i++) {
-            r = new Rectangle((i % 6) * 100 , (int)((100 * i + 1)/6),100, 100);
-            r.setFill(Color.BLUE);
-            r.setStroke(Color.DARKBLUE);
-            tileViews.add(r);
-            root.getChildren().add(r);
-        }
+        //Board View
+        setupBoard();
 
-        ballView = new Circle(10);
-
-        ballView.setFill(Color.RED);
-        ballView.setStroke(Color.BLACK);
-        root.getChildren().add(ballView);
+        //Ball View
+        setupBall();
 
         //Input & Score View
         HBox hBox = new HBox();
@@ -57,6 +49,28 @@ class Display {
 
         layout.setBottom(hBox);
 
+
+    }
+
+    void setupBoard(){
+        Rectangle r;
+        tileViews = new ArrayList<>();
+
+        for (int i = 0; i < 30; i++) {
+            r = new Rectangle((i % 5) * 100 , (int)((i / 6) * 100),100, 100);
+            r.setFill(Color.BLUE);
+            r.setStroke(Color.DARKBLUE);
+            tileViews.add(r);
+            root.getChildren().add(r);
+        }
+    }
+
+    void setupBall(){
+        ballView = new Circle(10);
+
+        ballView.setFill(Color.RED);
+        ballView.setStroke(Color.BLACK);
+        root.getChildren().add(ballView);
 
     }
 

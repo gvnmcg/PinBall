@@ -8,14 +8,14 @@ class GameLoop {
     //Event handlers for human input
     InputState inputState = new InputState();
 
-    //Layout and Graphical components
-    Display display = new Display();
-
     //The only moving part, ball, uses a
     //timer calling move and its redisplay
     //method
     Ball ball = new Ball();
     AnimationTimer animationTimer;
+
+    //Layout and Graphical components
+    Display display = new Display();
 
 
     Board board = new Board();
@@ -23,13 +23,14 @@ class GameLoop {
 
     GameLoop(){
 
+        //In-Game Time
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now){
                 System.out.println(" wow");
                 ball.move();
                 display.moveBall(ball);
-                display.paintComponents(board, ball);
+//                display.paintComponents(board, ball);
             }
         };
 
@@ -49,6 +50,7 @@ class GameLoop {
     }
 
     void play(){
+
         animationTimer.start();
     }
 }

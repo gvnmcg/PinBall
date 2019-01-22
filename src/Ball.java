@@ -1,7 +1,11 @@
+import javafx.scene.shape.Circle;
+
 /**
  * keeps track of the state of the ball, rests and moves
  */
 public class Ball {
+
+    Circle hitbox;
 
     private double x = 250;
     private double y = 400;
@@ -11,6 +15,9 @@ public class Ball {
     private double dx = 1 * speed;
     private double dy = -1 * speed;
 
+    Ball(){
+
+    }
 
     public void reset(){
 

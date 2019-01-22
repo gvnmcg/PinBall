@@ -1,3 +1,5 @@
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -6,7 +8,9 @@ import java.util.Random;
  */
 class Board {
 
-    LinkedList<Integer> targets = new LinkedList<>();
+    ArrayList<Integer> targets = new ArrayList<>();
+
+    ArrayList<Point2D> targethitboxes = new ArrayList<>();
 
     Random random = new Random();
 

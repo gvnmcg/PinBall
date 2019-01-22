@@ -20,15 +20,18 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        //Window setup
         window = primaryStage;
 
         window.setTitle("Bounce the Ball");
         window.setMinHeight(800);
         window.setMinWidth(500);
 
+        //Main Game Process + Scene
         mainGameLoop = new GameLoop();
         Scene gameScene = new Scene(mainGameLoop.display.layout, 500, 800);
 
+        //Intro Scene
         VBox introRoot = new VBox();
         Scene introScene = new Scene(introRoot, 500, 800);
 
@@ -36,6 +39,7 @@ public class Main extends Application {
         introRoot.getChildren().add(new Text("click play to launch the ball into the orange tiles"));
         introRoot.getChildren().add(new Text("if you miss a tile after 3 bounces, click reset to try again!"));
 
+        //Start Button + Button action
         Button startBtn = new Button("Play Ball!");
         startBtn.setOnAction(e -> window.setScene(gameScene));
         startBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -45,10 +49,9 @@ public class Main extends Application {
                 window.setScene(gameScene);
             }
         });
+        introRoot.getChildren().add(startBtn);
 
-        introRoot.getChildren().add(new Button("PlayBall"));
-
-        window.setScene(gameScene);
+        window.setScene(introScene);
 
         window.show();
 
