@@ -36,8 +36,8 @@ class Display {
         Rectangle r;
         for (int i = 0; i < 30; i++) {
             r = new Rectangle((i % 6) * 100 , (int)((100 * i + 1)/6),100, 100);
-            r.setFill(Color.FORESTGREEN);
-            r.setStroke(Color.DIMGREY);
+            r.setFill(Color.BLUE);
+            r.setStroke(Color.DARKBLUE);
             tileViews.add(r);
             root.getChildren().add(r);
         }

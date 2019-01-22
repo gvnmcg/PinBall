@@ -1,5 +1,11 @@
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -8,19 +14,48 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
+    Stage window;
+    GameLoop mainGameLoop;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Bounce the Ball");
-        primaryStage.setMinHeight(800);
-        primaryStage.setMinWidth(500);
+        window = primaryStage;
 
-        GameLoop mainGameLoop = new GameLoop();
+        window.setTitle("Bounce the Ball");
+        window.setMinHeight(800);
+        window.setMinWidth(500);
 
-        primaryStage.setScene(new Scene(mainGameLoop.display.layout, 500, 800));
+        mainGameLoop = new GameLoop();
+        Scene gameScene = new Scene(mainGameLoop.display.layout, 500, 800);
 
-        primaryStage.show();
+        VBox introRoot = new VBox();
+        Scene introScene = new Scene(introRoot, 500, 800);
+
+        introRoot.getChildren().add(new Text("PinBall!"));
+        introRoot.getChildren().add(new Text("click play to launch the ball into the orange tiles"));
+        introRoot.getChildren().add(new Text("if you miss a tile after 3 bounces, click reset to try again!"));
+
+        Button startBtn = new Button("Play Ball!");
+        startBtn.setOnAction(e -> window.setScene(gameScene));
+        startBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                System.out.println("what");
+                window.setScene(gameScene);
+            }
+        });
+
+        introRoot.getChildren().add(new Button("PlayBall"));
+
+        window.setScene(gameScene);
+
+        window.show();
 
 
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
