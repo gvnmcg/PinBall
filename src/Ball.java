@@ -9,6 +9,7 @@ public class Ball {
 
     private double x = 250;
     private double y = 400;
+    private double r = 5;
 
     private double speed = 5;
 
@@ -29,19 +30,21 @@ public class Ball {
 
     public void move() {
 
-        if (x > 500 && dx > 0){
+
+
+        if (x+r > 500 && dx > 0){
+//            dx = -dx;
+        }
+
+        if (x-r < 0 && dx < 0){
             dx = -dx;
         }
 
-        if (x < 0 && dx < 0){
-            dx = -dx;
-        }
-
-        if (y > 600 && dy > 0){
+        if (y+r > 600 && dy > 0){
             dy = -dy;
         }
 
-        if (y < 0 && dy < 0){
+        if (y-r < 0 && dy < 0){
             dy = -dy;
         }
 

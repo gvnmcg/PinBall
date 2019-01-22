@@ -23,11 +23,16 @@ class GameLoop {
 
     GameLoop(){
 
+
+        display.setupBoard(board);
+
+        display.setupBall(ball);
+
+
         //In-Game Time
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now){
-                System.out.println(" wow");
                 ball.move();
                 display.moveBall(ball);
 //                display.paintComponents(board, ball);
@@ -43,7 +48,7 @@ class GameLoop {
 
     void reset(){
         ball.reset();
-        board.reset();
+//        board.reset();
         score.reset();
 
         animationTimer.stop();

@@ -34,12 +34,6 @@ class Display {
         root = new Group();
         layout.setCenter(root);
 
-        //Board View
-        setupBoard();
-
-        //Ball View
-        setupBall();
-
         //Input & Score View
         HBox hBox = new HBox();
         hBox.setSpacing(100);
@@ -52,21 +46,28 @@ class Display {
 
     }
 
-    void setupBoard(){
+    void setupBoard(Board board){
         Rectangle r;
         tileViews = new ArrayList<>();
 
-        for (int i = 0; i < 30; i++) {
-            r = new Rectangle((i % 5) * 100 , (int)((i / 6) * 100),100, 100);
+        for (Tile t : board.tiles) {
+
+            r = new Rectangle(t.pos.getX(), t.pos.getY());
             r.setFill(Color.BLUE);
+            r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);
             tileViews.add(r);
             root.getChildren().add(r);
         }
     }
 
-    void setupBall(){
+    void setupBall(Ball ball){
+
+
         ballView = new Circle(10);
+
+        ballView.setCenterX(ball.getX());
+        ballView.setCenterY(ball.getY());
 
         ballView.setFill(Color.RED);
         ballView.setStroke(Color.BLACK);
@@ -94,39 +95,4 @@ class Display {
         gc.fillOval(10, 10, 200, 200);
     }
 
-    void paintComponents(Board board, Ball ball){
-
-        if (gc == null) return;
-        paintTiles(board);
-        paintBall(ball);
-
-    }
-
-    private void paintBall(Ball ball){
-        gc.setFill(Color.RED);
-        gc.setStroke(Color.BLACK);
-        gc.fillOval(ball.getX(), ball.getY(), 50,50);
-    }
-
-    private void paintTiles(Board board){
-
-        //paint all 30 blue
-        gc.setFill(Color.DARKBLUE);
-        gc.setStroke(Color.LIGHTBLUE);
-
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 6; j++) {
-                gc.fillRect(i * 100, j * 100, 100, 100);
-            }
-        }
-
-        //plaint the choosen ones orange
-
-        gc.setFill(Color.ORANGE);
-        gc.setStroke(Color.FORESTGREEN);
-        for (Integer i : board.targets){
-            gc.fillRect(500/i, 600 % i, 100, 100);
-        }
-
-    }
 }

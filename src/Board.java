@@ -1,6 +1,6 @@
-import java.awt.geom.Point2D;
+import javafx.geometry.Point2D;
+
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Random;
 
 /**
@@ -8,33 +8,18 @@ import java.util.Random;
  */
 class Board {
 
-    ArrayList<Integer> targets = new ArrayList<>();
-
-    ArrayList<Point2D> targethitboxes = new ArrayList<>();
+    ArrayList<Tile> tiles = new ArrayList<>();
 
     Random random = new Random();
 
 
-    void reset(){
+    Board(){
 
-        targets.clear();
+        for (int i = 0; i < 30; i++) {
 
-        reset(5);
+            tiles.add(new Tile(new Point2D((i % 5) * 100, (int) ((i / 6) * 100))));
 
-    }
-
-    void reset(int i){
-
-        int target = random.nextInt(30);
-
-        if (targets.contains(target)){
-            reset(i);
-        } else {
-            targets.add(target);
         }
-
-        if (i == 0) return;
-
-        reset(--i);
     }
+
 }
