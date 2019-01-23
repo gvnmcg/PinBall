@@ -26,7 +26,7 @@ class Board {
             tiles.add(
                     new Tile(
                             new Point2D(
-                                    (i % columns) * scale, (int) ((i / rows) * scale))));
+                                    (i % columns) * scale, (int) ((i / rows)) * scale)));
         }
     }
 

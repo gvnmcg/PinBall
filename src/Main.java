@@ -24,12 +24,12 @@ public class Main extends Application {
         window = primaryStage;
 
         window.setTitle("Bounce the Ball");
-        window.setMinHeight(600);
-        window.setMinWidth(00);
+        window.setMinHeight(Board.height +100);
+        window.setMinWidth(Board.width);
 
         //Main Game Process + Scene
         mainGameLoop = new GameLoop();
-        Scene gameScene = new Scene(mainGameLoop.display.layout, 500, 500);
+        Scene gameScene = new Scene(mainGameLoop.display.layout, Board.width, Board.height);
 
         //Intro Scene
         VBox introRoot = new VBox();
@@ -39,7 +39,7 @@ public class Main extends Application {
         introRoot.getChildren().add(new Text("click play to launch the ball into the orange tiles"));
         introRoot.getChildren().add(new Text("if you miss a tile after 3 bounces, click reset to try again!"));
 
-        //Start Button + Button action
+        //Start Button + Switch Scenes button action
         Button startBtn = new Button("Play Ball!");
         startBtn.setOnAction(e -> window.setScene(gameScene));
         startBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
