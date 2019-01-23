@@ -45,7 +45,7 @@ class Display {
 
     }
 
-    void setupBoard(Board board){
+    void showBoard(Board board){
         Rectangle r;
         tileViews = new ArrayList<>();
 
@@ -60,13 +60,12 @@ class Display {
         }
     }
 
-    void setupBall(Ball ball){
-
+    void showBall(Ball ball){
 
         ballView = new Circle(10);
 
-        ballView.setCenterX(ball.getX());
-        ballView.setCenterY(ball.getY());
+        ballView.setCenterX(ball.getX() + 5);
+        ballView.setCenterY(ball.getY() + 5);
 
         ballView.setFill(Color.RED);
         ballView.setStroke(Color.BLACK);

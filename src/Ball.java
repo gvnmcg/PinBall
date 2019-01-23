@@ -32,15 +32,15 @@ public class Ball {
 
 
 
-        if (x+r > 500 && dx > 0){
-//            dx = -dx;
+        if (x+r > Board.width && dx > 0){
+            dx = -dx;
         }
 
         if (x-r < 0 && dx < 0){
             dx = -dx;
         }
 
-        if (y+r > 600 && dy > 0){
+        if (y+r > Board.height && dy > 0){
             dy = -dy;
         }
 

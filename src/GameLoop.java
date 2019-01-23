@@ -5,9 +5,6 @@ import javafx.animation.AnimationTimer;
  */
 class GameLoop {
 
-    //Event handlers for human input
-    InputState inputState = new InputState();
-
     //The only moving part, ball, uses a
     //timer calling move and its redisplay
     //method
@@ -24,9 +21,9 @@ class GameLoop {
     GameLoop(){
 
 
-        display.setupBoard(board);
+        display.showBoard(board);
 
-        display.setupBall(ball);
+        display.showBall(ball);
 
 
         //In-Game Time
@@ -39,9 +36,13 @@ class GameLoop {
             }
         };
 
-        //add inputState EventHandlers to Displays buttons
-        display.resetButton.setOnMouseClicked(inputState.handleReset(this));
-        display.playButton.setOnMouseClicked(inputState.handlePlay(this));
+        display.resetButton.setOnAction( e-> {
+            reset();
+        });
+
+        display.playButton.setOnAction(e -> {
+            play();
+        });
 
 
     }
