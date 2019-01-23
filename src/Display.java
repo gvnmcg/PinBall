@@ -43,7 +43,6 @@ class Display {
 
         layout.setBottom(hBox);
 
-
     }
 
     void setupBoard(Board board){
@@ -52,7 +51,7 @@ class Display {
 
         for (Tile t : board.tiles) {
 
-            r = new Rectangle(t.pos.getX(), t.pos.getY());
+            r = new Rectangle(t.pos.getX(), t.pos.getY(), t.size,t.size);
             r.setFill(Color.BLUE);
             r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);

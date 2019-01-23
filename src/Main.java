@@ -29,7 +29,7 @@ public class Main extends Application {
 
         //Main Game Process + Scene
         mainGameLoop = new GameLoop();
-        Scene gameScene = new Scene(mainGameLoop.display.layout, 500, 800);
+        Scene gameScene = new Scene(mainGameLoop.display.layout, 500, 500);
 
         //Intro Scene
         VBox introRoot = new VBox();
@@ -51,7 +51,7 @@ public class Main extends Application {
         });
         introRoot.getChildren().add(startBtn);
 
-        window.setScene(introScene);
+        window.setScene(gameScene);
 
         window.show();
 
