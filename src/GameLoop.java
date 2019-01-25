@@ -1,5 +1,5 @@
 import javafx.animation.AnimationTimer;
-import javafx.event.EventType;
+import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -31,7 +31,16 @@ class GameLoop {
                 KeyEvent.KEY_PRESSED,inputState.handleKeyMovement());
 
         display.root.addEventHandler(
-                MouseEvent.MOUSE_MOVED, inputState.handleMouseEnter());
+                MouseEvent.MOUSE_MOVED, inputState.handleMouseMoved());
+
+        display.root.addEventHandler(
+                MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                        play();
+                    }
+                });
 
         //In-Game Time
         animationTimer = new AnimationTimer() {

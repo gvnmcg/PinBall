@@ -8,7 +8,7 @@ public class Ball {
     Circle hitbox;
 
     double x = 250;
-    double y = 400;
+    double y = 600;
     private double r = 5;
 
     private double speed = 5;

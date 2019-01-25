@@ -34,12 +34,22 @@ public class InputState {
         };
     }
 
-    public EventHandler<MouseEvent> handleMouseEnter(){
+    public EventHandler<MouseEvent> handleMouseMoved(){
         return new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
 
-                System.out.println("mouse event:" + event.getX());
+                ball.x = event.getX();
+                display.updateBall(ball);
+            }
+        };
+    }
+
+    public EventHandler<MouseEvent> handleMouseClicked(){
+        return new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
                 ball.x = event.getX();
                 display.updateBall(ball);
             }
