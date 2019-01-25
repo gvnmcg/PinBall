@@ -17,7 +17,7 @@ import java.util.Map;
  */
 class Display {
 
-    private Group root;
+    Group root;
 
     Circle ballView;
     ArrayList<Rectangle> tileViews;

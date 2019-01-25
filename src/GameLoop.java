@@ -1,4 +1,6 @@
 import javafx.animation.AnimationTimer;
+import javafx.event.EventType;
+import javafx.scene.input.KeyEvent;
 
 /**
  * Controls the Game
@@ -20,6 +22,12 @@ class GameLoop {
 
 
     GameLoop(){
+
+        InputState inputState = new InputState(ball, display);
+
+        display.root.setFocusTraversable(true);
+        display.root.addEventHandler(
+                KeyEvent.KEY_PRESSED,inputState.handleKeyMovement());
 
         //In-Game Time
         animationTimer = new AnimationTimer() {
