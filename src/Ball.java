@@ -25,7 +25,7 @@ public class Ball {
     }
 
     /**
-     * restes ball to launching position
+     * resets ball to launching position
      */
     public void reset(){
 
@@ -45,9 +45,13 @@ public class Ball {
 
     }
 
+    /**
+     * wall collision & ball movement
+     */
     public void move() {
 
 
+        //wall collision
         if (x+r > Board.width && dx > 0){
             dx = -dx;
         }
@@ -64,10 +68,10 @@ public class Ball {
             dy = -dy;
         }
 
+        //movement
         x += dx;
         y += dy;
 
-//        System.out.printf("x : %f, y: %f", x, y);
     }
 
     public double getX() {

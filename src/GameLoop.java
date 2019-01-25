@@ -7,6 +7,7 @@ import javafx.scene.input.MouseEvent;
  */
 class GameLoop {
 
+    //Game Components
     Board board = new Board();
     Score score = new Score();
 
@@ -21,6 +22,11 @@ class GameLoop {
     Display display = new Display(board, score, ball);
 
 
+    /**
+     * sets user controls/Event handlers
+     * initializes animation timer
+     * button action
+     */
     GameLoop(){
 
         setUserControls();
@@ -44,14 +50,25 @@ class GameLoop {
 
     }
 
+    /**
+     * animation timer calls this constantly when runnning
+     */
     void update(){
+
+        //movement
         ball.move();
         display.updateBall(ball);
+
+        //target hit
         if(board.detectHit(ball)){
             score.hitTileCount();
         }
     }
 
+    /**
+     * called when game is lost or reset button is clicked
+     * resets all components of the game
+     */
     void reset(){
         ball.reset();
         score.reset();
@@ -60,6 +77,10 @@ class GameLoop {
         running = false;
     }
 
+    /**
+     * called when board display/play button is clicked
+     * launches the ball, starting the animation timer
+     */
     void play(){
 
         if (!running) {
@@ -69,6 +90,9 @@ class GameLoop {
         }
     }
 
+    /**
+     * adds event handlers to display
+     */
     void setUserControls(){
         display.root.setFocusTraversable(true);
 

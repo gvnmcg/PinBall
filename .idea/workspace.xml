@@ -18,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="458">
               <caret line="44" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -27,33 +27,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameLoop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+            <state relative-caret-position="629">
+              <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#601#736#0" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#1956#1957#0" expanded="true" />
-                <element signature="e#2010#2011#0" expanded="true" />
+                <element signature="e#647#782#0" expanded="true" />
+                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#2319#2320#0" expanded="true" />
+                <element signature="e#2373#2374#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Ball.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="816">
+              <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1035#1036#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1111#1112#0" expanded="true" />
+                <element signature="e#1206#1207#0" expanded="true" />
+                <element signature="e#1230#1231#0" expanded="true" />
+                <element signature="e#1258#1259#0" expanded="true" />
+                <element signature="e#1282#1283#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +81,8 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Display.java" />
         <option value="$PROJECT_DIR$/src/Score.java" />
-        <option value="$PROJECT_DIR$/src/GameLoop.java" />
         <option value="$PROJECT_DIR$/src/Ball.java" />
+        <option value="$PROJECT_DIR$/src/GameLoop.java" />
       </list>
     </option>
   </component>
@@ -184,7 +184,7 @@
       <workItem from="1547777501854" duration="4759000" />
       <workItem from="1547835211002" duration="1340000" />
       <workItem from="1548011707717" duration="10696000" />
-      <workItem from="1548436807967" duration="1021000" />
+      <workItem from="1548436807967" duration="1486000" />
     </task>
     <task id="LOCAL-00001" summary="added display canvas, buttons, text for score.">
       <created>1548014209526</created>
@@ -305,11 +305,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548437325377</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="reset resets ball position, ball launches at random angle.">
+      <created>1548437956762</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1548437956762</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44451000" />
+    <option name="totallyTimeSpent" value="44916000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -399,7 +406,8 @@
     <MESSAGE value="play called on mouse click, ball follows the mouse in play" />
     <MESSAGE value="moved event handlers form InputState to GameLoop, removing any ref to InputState" />
     <MESSAGE value="moved event handlers form InputState to GameLoop, removing any ref to InputState, added a README and gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved event handlers form InputState to GameLoop, removing any ref to InputState, added a README and gitignore" />
+    <MESSAGE value="reset resets ball position, ball launches at random angle." />
+    <option name="LAST_COMMIT_MESSAGE" value="reset resets ball position, ball launches at random angle." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java" />
@@ -409,16 +417,6 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -473,30 +471,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameLoop.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
+        <state relative-caret-position="458">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#601#736#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#1956#1957#0" expanded="true" />
-            <element signature="e#2010#2011#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ball.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="816">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1087#1088#0" expanded="true" />
-            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1230#1231#0" expanded="true" />
+            <element signature="e#1258#1259#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameLoop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#647#782#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#2319#2320#0" expanded="true" />
+            <element signature="e#2373#2374#0" expanded="true" />
           </folding>
         </state>
       </provider>
