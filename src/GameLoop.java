@@ -12,7 +12,7 @@ class GameLoop {
     //method
     Ball ball = new Ball();
     AnimationTimer animationTimer;
-
+    boolean running = false;
 
     Board board = new Board();
     Score score = new Score();
@@ -55,10 +55,12 @@ class GameLoop {
         score.reset();
 
         animationTimer.stop();
+        running = false;
     }
 
     void play(){
 
         animationTimer.start();
+        running = true;
     }
 }

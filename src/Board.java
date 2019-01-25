@@ -27,7 +27,6 @@ class Board {
      */
     Board(){
 
-        Tile t;
 
         for (int col = 0; col < columns; col++) {
             for (int row = 0; row < rows; row++) {
@@ -36,7 +35,13 @@ class Board {
             }
         }
 
+        makeTargets();
+
+    }
+
+    private void makeTargets(){
         //targets
+        Tile t;
         for (int i = 0; i < 7; i++) {
             t = tiles.get(random.nextInt((int)(rows * columns)));
 
@@ -47,15 +52,24 @@ class Board {
                 t.setTarget(true);
             }
         }
+
     }
 
     boolean detectHit(Ball ball) {
 
-        for (Tile t : targets) {
-            if (t.view.intersects(
-                    ball.getX(), ball.getY(), 1, 1)){
-                t.setTarget(false);
-                return true;
+        //if there are no targets, make new targets
+        if (targets.isEmpty()){
+
+            makeTargets();
+
+        } else {
+            for (Tile t : targets) {
+                if (t.view.intersects(
+                        ball.getX(), ball.getY(), 1, 1)) {
+                    t.setTarget(false);
+                    targets.remove(t);
+                    return true;
+                }
             }
         }
         return false;

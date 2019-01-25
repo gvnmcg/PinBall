@@ -21,8 +21,13 @@ public class InputState {
             @Override
             public void handle(KeyEvent event) {
 
-                if (event.getCode() == KeyCode.RIGHT){
+                if (event.getCode() == KeyCode.LEFT){
                     ball.x -= 5;
+                    display.updateBall(ball);
+                }
+
+                if (event.getCode() == KeyCode.RIGHT){
+                    ball.x += 5;
                     display.updateBall(ball);
                 }
             }
