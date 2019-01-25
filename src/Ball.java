@@ -101,6 +101,10 @@ public class Ball {
         return x;
     }
 
+    public void setX(double x) {
+        this.x = x;
+    }
+
     public double getY() {
         return y;
     }

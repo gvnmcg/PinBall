@@ -8,15 +8,15 @@ import javafx.scene.input.MouseEvent;
 class GameLoop {
 
     //Game Components
-    Board board = new Board();
-    Score score = new Score();
+    private Board board = new Board();
+    private Score score = new Score();
 
     //The only moving part, ball, uses a
     //timer calling move and its redisplay
     //method
-    Ball ball = new Ball();
-    AnimationTimer animationTimer;
-    boolean running = false;
+    private Ball ball = new Ball();
+    private AnimationTimer animationTimer;
+    private boolean running = false;
 
     //Layout and Graphical components
     Display display = new Display(board, score, ball);
@@ -39,11 +39,11 @@ class GameLoop {
             }
         };
 
-        display.resetButton.setOnAction( e-> {
+        display.getResetButton().setOnAction( e-> {
             reset();
         });
 
-        display.playButton.setOnAction(e -> {
+        display.getPlayButton().setOnAction(e -> {
             play();
         });
 
@@ -53,7 +53,7 @@ class GameLoop {
     /**
      * animation timer calls this constantly when runnning
      */
-    void update(){
+    private void update(){
 
         //movement
         ball.move();
@@ -99,23 +99,23 @@ class GameLoop {
     /**
      * adds event handlers to display
      */
-    void setUserControls(){
-        display.root.setFocusTraversable(true);
+    private void setUserControls(){
+        display.getRoot().setFocusTraversable(true);
 
-        display.root.addEventHandler(
+        display.getRoot().addEventHandler(
                 MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {
 
                         if (!running){
-                            ball.x = event.getX();
+                            ball.setX(event.getX());
                             display.updateBall(ball);
                         }
 
                     }
                 });
 
-        display.root.addEventHandler(
+        display.getRoot().addEventHandler(
                 MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {

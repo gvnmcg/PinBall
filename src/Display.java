@@ -18,41 +18,50 @@ import java.util.Map;
  */
 class Display {
 
+    //game view
     Group root;
 
-    Circle ballView;
-    ArrayList<Rectangle> tileViews;
+    private Circle ballView;
+    private ArrayList<Rectangle> tileViews;
 
-    HashMap<Tile, Rectangle> tileToViewMap = new HashMap<>();
-
-    private Text scoreView = new Text("sup?");
-
-    Button resetButton = new Button("Reset");
-    Button playButton = new Button("Play");
+    private Button resetButton = new Button("Reset");
+    private Button playButton = new Button("Play");
 
     BorderPane layout = new BorderPane();
     GraphicsContext gc;
 
+    /**
+     * displays game components
+     * @param board - each tile displayed as a rectangle
+     * @param score - text at the bottom
+     * @param ball - a red ball
+     */
     Display(Board board, Score score, Ball ball) {
 
         //root of game view & adding game components
         root = new Group();
         layout.setCenter(root);
 
-
         showBoard(board);
         showBall(ball);
 
         //Input & Score View
         HBox hBox = new HBox();
+        layout.setBottom(hBox);
+
         hBox.setSpacing(100);
         hBox.getChildren().add(resetButton);
         hBox.getChildren().add(score.text);
         hBox.getChildren().add(playButton);
 
-        layout.setBottom(hBox);
     }
 
+    /**
+     * initialize board display
+     * each tile displayed as a blue rectangle
+     * targets are displayed as orange
+     * @param board
+     */
     void showBoard(Board board){
         Rectangle r;
         tileViews = new ArrayList<>();
@@ -73,8 +82,6 @@ class Display {
             }
 
             t.view = r;
-            //or
-            tileToViewMap.put(t, r);
 
             r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);
@@ -83,6 +90,10 @@ class Display {
         }
     }
 
+    /**
+     * initialize ball display
+     * @param ball
+     */
     private void showBall(Ball ball){
 
         ballView = new Circle(10);
@@ -95,10 +106,28 @@ class Display {
 
     }
 
+    /**
+     * update circle display position
+     * @param ball
+     */
     void updateBall(Ball ball){
         ballView.setCenterX(ball.getX() + 5);
         ballView.setCenterY(ball.getY() + 5);
     }
 
+    public Group getRoot() {
+        return root;
+    }
 
+    public Button getResetButton() {
+        return resetButton;
+    }
+
+    public Button getPlayButton() {
+        return playButton;
+    }
+
+    public BorderPane getLayout() {
+        return layout;
+    }
 }

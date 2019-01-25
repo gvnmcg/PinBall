@@ -14,8 +14,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    Stage window;
-    GameLoop mainGameLoop;
+    private Stage window;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -28,8 +27,8 @@ public class Main extends Application {
         window.setMinWidth(Board.width + 50);
 
         //Main Game Process + Scene
-        mainGameLoop = new GameLoop();
-        Scene gameScene = new Scene(mainGameLoop.display.layout, Board.width, Board.height);
+        GameLoop mainGameLoop = new GameLoop();
+        Scene gameScene = new Scene(mainGameLoop.display.getLayout(), Board.width, Board.height);
 
         //Intro Scene
         VBox introRoot = new VBox();
