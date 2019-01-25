@@ -86,7 +86,7 @@ class Board {
         } else {
 
             for (Tile t : targets) {
-                if (t.view.intersects(
+                if (t.getView().intersects(
                         ball.getX(), ball.getY(), 1, 1)) {
                     t.setTarget(false);
                     targets.remove(t);

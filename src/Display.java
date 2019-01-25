@@ -42,7 +42,7 @@ class Display {
         HBox hBox = new HBox();
         layout.setBottom(hBox);
 
-        hBox.setSpacing(100);
+        hBox.setSpacing(210);
         hBox.getChildren().add(resetButton);
         hBox.getChildren().add(score.text);
         hBox.getChildren().add(playButton);

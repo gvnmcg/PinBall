@@ -9,7 +9,7 @@ public class Tile {
     Point2D pos;
     double size = 100;
 
-    Rectangle view;
+    private Rectangle view;
 
     Tile(Point2D pos) {
 
