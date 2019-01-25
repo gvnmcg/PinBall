@@ -1,4 +1,5 @@
 import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 public class Tile {
@@ -10,7 +11,7 @@ public class Tile {
 
     Rectangle view;
 
-    Tile(Point2D pos){
+    Tile(Point2D pos) {
 
         this.pos = pos;
 
@@ -22,6 +23,14 @@ public class Tile {
 
     public void setTarget(boolean target) {
         this.target = target;
+
+        if (view != null) {
+            if (!target) {
+                view.setFill(Color.BLUE);
+            } else {
+                view.setFill(Color.ORANGE);
+            }
+        }
     }
 
     public void setView(Rectangle view) {

@@ -16,6 +16,7 @@ class Board {
     int scale = 100;
 
     ArrayList<Tile> tiles = new ArrayList<>();
+    ArrayList<Tile> targets = new ArrayList<>();
 
     Random random = new Random();
 
@@ -42,9 +43,22 @@ class Board {
             if (t.isTarget()){
                 i--; //grab a different tile
             } else {
+                targets.add(t);
                 t.setTarget(true);
             }
         }
+    }
+
+    boolean detectHit(Ball ball) {
+
+        for (Tile t : targets) {
+            if (t.view.intersects(
+                    ball.getX(), ball.getY(), 1, 1)){
+                t.setTarget(false);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

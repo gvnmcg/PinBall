@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * GUI display, update whats provides by the game loop
@@ -17,8 +19,10 @@ class Display {
 
     private Group root;
 
-    Circle ballView ;
+    Circle ballView;
     ArrayList<Rectangle> tileViews;
+
+    HashMap<Tile, Rectangle> tileToViewMap = new HashMap<>();
 
     private Text scoreView = new Text("sup?");
 
@@ -61,6 +65,10 @@ class Display {
                 r.setFill(Color.BLUE);
             }
 
+            t.view = r;
+            //or
+            tileToViewMap.put(t, r);
+
             r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);
             tileViews.add(r);
@@ -86,5 +94,11 @@ class Display {
         ballView.setCenterX(ball.getX());
         ballView.setCenterY(ball.getY());
 
+    }
+
+    Rectangle getTileView(Tile tile){
+
+        return tileToViewMap.containsKey(tile) ?
+                tileToViewMap.get(tile) : null;
     }
 }

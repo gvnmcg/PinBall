@@ -27,7 +27,7 @@ class GameLoop {
             public void handle(long now){
                 ball.move();
                 display.moveBall(ball);
-//                display.paintComponents(board, ball);
+                board.detectHit(ball);
             }
         };
 
