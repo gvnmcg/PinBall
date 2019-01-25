@@ -57,6 +57,11 @@ class Display {
         Rectangle r;
         tileViews = new ArrayList<>();
 
+        //botton grey rectangle
+        r = new Rectangle( -5, Board.height, Board.width + 10, 50);
+        r.setFill(Color.GRAY);
+        root.getChildren().add(r);
+
         for (Tile t : board.tiles) {
 
             r = new Rectangle(t.pos.getX(), t.pos.getY(), t.size,t.size);

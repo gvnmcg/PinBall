@@ -10,7 +10,7 @@ public class Ball {
     Circle hitbox;
 
     double x = 250;
-    double y = 600;
+    double y = 625;
     private double r = 5;
 
     private double speed = 5;
@@ -32,7 +32,7 @@ public class Ball {
     public void reset(){
 
         x = 250;
-        y = 600;
+        y = 625;
 
         misses = 0;
     }

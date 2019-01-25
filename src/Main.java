@@ -24,8 +24,8 @@ public class Main extends Application {
         window = primaryStage;
 
         window.setTitle("Bounce the Ball");
-        window.setMinHeight(Board.height +150);
-        window.setMinWidth(Board.width);
+        window.setMinHeight(Board.height + 150);
+        window.setMinWidth(Board.width + 50);
 
         //Main Game Process + Scene
         mainGameLoop = new GameLoop();
