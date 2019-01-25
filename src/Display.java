@@ -1,17 +1,11 @@
 import javafx.scene.Group;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
-
-import java.beans.EventHandler;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * GUI display, update whats provides by the game loop
@@ -19,7 +13,7 @@ import java.util.Map;
 class Display {
 
     //game view
-    Group root;
+    private Group root;
 
     private Circle ballView;
     private ArrayList<Rectangle> tileViews;
@@ -27,8 +21,7 @@ class Display {
     private Button resetButton = new Button("Reset");
     private Button playButton = new Button("Play");
 
-    BorderPane layout = new BorderPane();
-    GraphicsContext gc;
+    private BorderPane layout = new BorderPane();
 
     /**
      * displays game components
@@ -62,7 +55,7 @@ class Display {
      * targets are displayed as orange
      * @param board
      */
-    void showBoard(Board board){
+    private void showBoard(Board board){
         Rectangle r;
         tileViews = new ArrayList<>();
 

@@ -18,9 +18,9 @@ public class Ball {
     private double dx = 1 * speed;
     private double dy = -1 * speed;
 
-    Random random = new Random();
+    private Random random = new Random();
 
-    int misses = 0;
+    private int misses = 0;
 
     Ball(){
 
@@ -83,10 +83,6 @@ public class Ball {
         x += dx;
         y += dy;
 
-    }
-
-    void resetMisses(){
-        misses = 0;
     }
 
     public void setMisses(int misses) {
