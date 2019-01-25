@@ -20,6 +20,8 @@ public class Ball {
 
     Random random = new Random();
 
+    int misses = 0;
+
     Ball(){
 
     }
@@ -31,6 +33,8 @@ public class Ball {
 
         x = 250;
         y = 600;
+
+        misses = 0;
     }
 
     /**
@@ -50,28 +54,47 @@ public class Ball {
      */
     public void move() {
 
-
         //wall collision
+        //left wall
         if (x+r > Board.width && dx > 0){
             dx = -dx;
+            misses++;
         }
 
+        //right wall
         if (x-r < 0 && dx < 0){
             dx = -dx;
+            misses++;
         }
 
+        //bottom wall
         if (y+r > Board.height && dy > 0){
             dy = -dy;
+            misses++;
         }
 
+        //top wall
         if (y-r < 0 && dy < 0){
             dy = -dy;
+            misses++;
         }
 
         //movement
         x += dx;
         y += dy;
 
+    }
+
+    void resetMisses(){
+        misses = 0;
+    }
+
+    public void setMisses(int misses) {
+        this.misses = misses;
+    }
+
+    public int getMisses() {
+        return misses;
     }
 
     public double getX() {

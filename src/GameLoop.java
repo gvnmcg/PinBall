@@ -62,6 +62,11 @@ class GameLoop {
         //target hit
         if(board.detectHit(ball)){
             score.hitTileCount();
+            ball.setMisses(0);
+        }
+
+        if (ball.getMisses() >= 3){
+            reset();
         }
     }
 
