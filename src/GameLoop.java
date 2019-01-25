@@ -11,12 +11,13 @@ class GameLoop {
     Ball ball = new Ball();
     AnimationTimer animationTimer;
 
-    //Layout and Graphical components
-    Display display = new Display();
-
 
     Board board = new Board();
     Score score = new Score();
+
+    //Layout and Graphical components
+    Display display = new Display();
+
 
     GameLoop(){
 

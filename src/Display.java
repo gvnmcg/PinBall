@@ -29,7 +29,14 @@ class Display {
     BorderPane layout = new BorderPane();
     GraphicsContext gc;
 
+    Display(Board board, Ball ball) {
+        showBoard(board);
+        showBall(ball);
+
+    }
+
     Display(){
+
 
         root = new Group();
         layout.setCenter(root);
@@ -80,18 +87,4 @@ class Display {
         ballView.setCenterY(ball.getY());
 
     }
-
-    void setupCanvas(Group root){
-
-        //Our tool for drawing the board:
-        Canvas canvas = new Canvas(500,600);
-        root.getChildren().add(canvas);
-        gc = canvas.getGraphicsContext2D();
-
-        gc.setFill(Color.FORESTGREEN);
-        gc.setStroke(Color.DIMGREY);
-        gc.setLineWidth(40);
-        gc.fillOval(10, 10, 200, 200);
-    }
-
 }

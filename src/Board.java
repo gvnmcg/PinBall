@@ -20,13 +20,30 @@ class Board {
     Random random = new Random();
 
 
+    /**
+     * create all tiles
+     * choose few to become targets
+     */
     Board(){
 
-        for (int i = 0; i < rows  * columns; i++) {
-            tiles.add(
-                    new Tile(
-                            new Point2D(
-                                    (i % columns) * scale, (int) ((i / rows)) * scale)));
+        Tile t;
+
+        for (int col = 0; col < columns; col++) {
+            for (int row = 0; row < rows; row++) {
+                tiles.add(new Tile(
+                       new Point2D(col * scale, row * scale)));
+            }
+        }
+
+        //targets
+        for (int i = 0; i < 7; i++) {
+            t = tiles.get(random.nextInt((int)(rows * columns)));
+
+            if (t.isTarget()){
+                i--; //grab a different tile
+            } else {
+                t.setTarget(true);
+            }
         }
     }
 
