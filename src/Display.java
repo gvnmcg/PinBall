@@ -66,7 +66,8 @@ class Display {
 
         for (Tile t : board.tiles) {
 
-            r = new Rectangle(t.pos.getX(), t.pos.getY(), t.size,t.size);
+            r = new Rectangle(t.getPosition().getX(),
+                    t.getPosition().getY(), t.getSize(),t.getSize());
 
             if (t.isTarget()){
                 r.setFill(Color.ORANGE);
@@ -74,7 +75,7 @@ class Display {
                 r.setFill(Color.BLUE);
             }
 
-            t.view = r;
+            t.setView(r);
 
             r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);

@@ -1,4 +1,3 @@
-import javafx.scene.shape.Circle;
 
 import java.util.Random;
 
@@ -7,11 +6,8 @@ import java.util.Random;
  */
 public class Ball {
 
-    Circle hitbox;
-
-    double x = 250;
-    double y = 625;
-    private double r = 5;
+    private double x = 250;
+    private double y = 625;
 
     private double speed = 5;
 
@@ -53,6 +49,8 @@ public class Ball {
      * wall collision & ball movement
      */
     public void move() {
+
+        int r = 5;
 
         //wall collision
         //left wall

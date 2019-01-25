@@ -27,7 +27,6 @@ class Board {
      */
     Board(){
 
-
         for (int col = 0; col < columns; col++) {
             for (int row = 0; row < rows; row++) {
                 tiles.add(new Tile(
@@ -38,6 +37,9 @@ class Board {
         makeTargets();
     }
 
+    /**
+     * randomly chooses tiles to become targets
+     */
     private void makeTargets(){
         //targets
         Tile t;
@@ -68,6 +70,12 @@ class Board {
         makeTargets();
     }
 
+    /**
+     * is ball intersects with a target,
+     * that target is reset to blue
+     * @param ball
+     * @return true if hit, false if not
+     */
     boolean detectHit(Ball ball) {
 
         //if there are no targets, make new targets

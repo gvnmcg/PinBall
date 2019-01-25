@@ -4,7 +4,7 @@ import javafx.scene.shape.Rectangle;
 
 public class Tile {
 
-    boolean target;
+    private boolean target;
 
     Point2D pos;
     double size = 100;
@@ -39,5 +39,13 @@ public class Tile {
 
     public Rectangle getView() {
         return view;
+    }
+
+    public Point2D getPosition() {
+        return pos;
+    }
+
+    public double getSize() {
+        return size;
     }
 }
