@@ -30,16 +30,18 @@ class Display {
     GraphicsContext gc;
 
     Display(Board board, Ball ball) {
+
+
+//    }
+//    Display(){
+
+        //root of game view & adding game components
+        root = new Group();
+        layout.setCenter(root);
+
         showBoard(board);
         showBall(ball);
 
-    }
-
-    Display(){
-
-
-        root = new Group();
-        layout.setCenter(root);
 
         //Input & Score View
         HBox hBox = new HBox();
@@ -49,7 +51,6 @@ class Display {
         hBox.getChildren().add(playButton);
 
         layout.setBottom(hBox);
-
     }
 
     void showBoard(Board board){
@@ -60,7 +61,12 @@ class Display {
 
             r = new Rectangle(t.pos.getX(), t.pos.getY(), t.size,t.size);
 
-            r.setFill(Color.BLUE);
+            if (t.isTarget()){
+                r.setFill(Color.ORANGE);
+            } else {
+                r.setFill(Color.BLUE);
+            }
+
             r.setStrokeWidth(10);
             r.setStroke(Color.DARKBLUE);
             tileViews.add(r);

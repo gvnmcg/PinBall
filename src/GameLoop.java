@@ -16,16 +16,13 @@ class GameLoop {
     Score score = new Score();
 
     //Layout and Graphical components
-    Display display = new Display();
+    Display display = new Display(board, ball);
 
 
     GameLoop(){
 
-
-        display.showBoard(board);
-
-        display.showBall(ball);
-
+//        display.showBoard(board);
+//        display.showBall(ball);
 
         //In-Game Time
         animationTimer = new AnimationTimer() {
