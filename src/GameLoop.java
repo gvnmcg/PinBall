@@ -75,6 +75,10 @@ class GameLoop {
      * resets all components of the game
      */
     void reset(){
+
+        display.getResetButton().setDisable(true);
+        display.getPlayButton().setDisable(false);
+
         ball.reset();
         score.reset();
         board.reset();
@@ -89,6 +93,9 @@ class GameLoop {
      */
     void play(){
 
+
+        display.getResetButton().setDisable(false);
+        display.getPlayButton().setDisable(true);
         if (!running) {
             ball.launch();
             animationTimer.start();
