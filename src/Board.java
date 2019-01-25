@@ -36,7 +36,6 @@ class Board {
         }
 
         makeTargets();
-
     }
 
     private void makeTargets(){
