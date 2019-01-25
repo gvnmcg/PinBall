@@ -72,6 +72,7 @@ class GameLoop {
     void reset(){
         ball.reset();
         score.reset();
+        board.reset();
 
         animationTimer.stop();
         running = false;

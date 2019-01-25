@@ -54,6 +54,20 @@ class Board {
 
     }
 
+    /**
+     * when game is lost or reset button is clicked
+     * the board reassigns targets
+     */
+    void reset(){
+        for (Tile t : targets){
+            t.setTarget(false);
+        }
+
+        targets.clear();
+
+        makeTargets();
+    }
+
     boolean detectHit(Ball ball) {
 
         //if there are no targets, make new targets
@@ -62,6 +76,7 @@ class Board {
             makeTargets();
 
         } else {
+
             for (Tile t : targets) {
                 if (t.view.intersects(
                         ball.getX(), ball.getY(), 1, 1)) {
