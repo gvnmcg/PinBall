@@ -29,11 +29,7 @@ class GameLoop {
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now){
-                ball.move();
-                display.updateBall(ball);
-                if(board.detectHit(ball)){
-                    score.hitTileCount();
-                }
+               update();
             }
         };
 
@@ -46,6 +42,31 @@ class GameLoop {
         });
 
 
+    }
+
+    void update(){
+        ball.move();
+        display.updateBall(ball);
+        if(board.detectHit(ball)){
+            score.hitTileCount();
+        }
+    }
+
+    void reset(){
+        ball.reset();
+        score.reset();
+
+        animationTimer.stop();
+        running = false;
+    }
+
+    void play(){
+
+        if (!running) {
+            ball.launch();
+            animationTimer.start();
+            running = true;
+        }
     }
 
     void setUserControls(){
@@ -71,19 +92,5 @@ class GameLoop {
                         play();
                     }
                 });
-    }
-
-    void reset(){
-        ball.reset();
-        score.reset();
-
-        animationTimer.stop();
-        running = false;
-    }
-
-    void play(){
-
-        animationTimer.start();
-        running = true;
     }
 }
