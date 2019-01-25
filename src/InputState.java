@@ -1,11 +1,7 @@
 import javafx.event.EventHandler;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
-import java.awt.event.KeyListener;
-import java.awt.event.MouseListener;
 
 /**
  * Encapsulates the input form the mouse and buttons
@@ -27,7 +23,7 @@ public class InputState {
 
                 if (event.getCode() == KeyCode.RIGHT){
                     ball.x -= 5;
-                    display.showBall(ball);
+                    display.updateBall(ball);
                 }
             }
         };

@@ -34,7 +34,7 @@ class GameLoop {
             @Override
             public void handle(long now){
                 ball.move();
-                display.moveBall(ball);
+                display.updateBall(ball);
                 board.detectHit(ball);
             }
         };

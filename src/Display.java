@@ -38,6 +38,7 @@ class Display {
         root = new Group();
         layout.setCenter(root);
 
+
         showBoard(board);
         showBall(ball);
 
@@ -76,12 +77,11 @@ class Display {
         }
     }
 
-    void showBall(Ball ball){
+    private void showBall(Ball ball){
 
         ballView = new Circle(10);
 
-        ballView.setCenterX(ball.getX() + 5);
-        ballView.setCenterY(ball.getY() + 5);
+        updateBall(ball);
 
         ballView.setFill(Color.RED);
         ballView.setStroke(Color.BLACK);
@@ -89,12 +89,11 @@ class Display {
 
     }
 
-    void moveBall(Ball ball){
-
-        ballView.setCenterX(ball.getX());
-        ballView.setCenterY(ball.getY());
-
+    void updateBall(Ball ball){
+        ballView.setCenterX(ball.getX() + 5);
+        ballView.setCenterY(ball.getY() + 5);
     }
+
 
     Rectangle getTileView(Tile tile){
 
