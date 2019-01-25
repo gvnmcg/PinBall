@@ -24,23 +24,7 @@ class GameLoop {
 
     GameLoop(){
 
-        InputState inputState = new InputState(ball, display);
-
-        display.root.setFocusTraversable(true);
-        display.root.addEventHandler(
-                KeyEvent.KEY_PRESSED,inputState.handleKeyMovement());
-
-        display.root.addEventHandler(
-                MouseEvent.MOUSE_MOVED, inputState.handleMouseMoved());
-
-        display.root.addEventHandler(
-                MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-
-                        play();
-                    }
-                });
+        setUserControls();
 
         //In-Game Time
         animationTimer = new AnimationTimer() {
@@ -61,6 +45,31 @@ class GameLoop {
         });
 
 
+    }
+
+    void setUserControls(){
+        display.root.setFocusTraversable(true);
+
+        display.root.addEventHandler(
+                MouseEvent.MOUSE_MOVED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+
+                        if (!running){
+                            ball.x = event.getX();
+                            display.updateBall(ball);
+                        }
+
+                    }
+                });
+
+        display.root.addEventHandler(
+                MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        play();
+                    }
+                });
     }
 
     void reset(){

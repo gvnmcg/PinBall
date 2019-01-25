@@ -16,25 +16,7 @@ public class InputState {
         this.display = display;
     }
 
-    public EventHandler<KeyEvent> handleKeyMovement(){
-        return new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-
-                if (event.getCode() == KeyCode.LEFT){
-                    ball.x -= 5;
-                    display.updateBall(ball);
-                }
-
-                if (event.getCode() == KeyCode.RIGHT){
-                    ball.x += 5;
-                    display.updateBall(ball);
-                }
-            }
-        };
-    }
-
-    public EventHandler<MouseEvent> handleMouseMoved(){
+    public EventHandler<MouseEvent> handleMouseMoved(Ball ball, Display display){
         return new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -45,7 +27,7 @@ public class InputState {
         };
     }
 
-    public EventHandler<MouseEvent> handleMouseClicked(){
+    public EventHandler<MouseEvent> handleMouseClicked(Ball ball, Display display){
         return new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {

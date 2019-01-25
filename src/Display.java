@@ -8,6 +8,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
+import java.beans.EventHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -95,9 +96,4 @@ class Display {
     }
 
 
-    Rectangle getTileView(Tile tile){
-
-        return tileToViewMap.containsKey(tile) ?
-                tileToViewMap.get(tile) : null;
-    }
 }
