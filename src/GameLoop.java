@@ -21,9 +21,6 @@ class GameLoop {
 
     GameLoop(){
 
-//        display.showBoard(board);
-//        display.showBall(ball);
-
         //In-Game Time
         animationTimer = new AnimationTimer() {
             @Override

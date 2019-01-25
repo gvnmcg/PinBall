@@ -1,5 +1,4 @@
 import javafx.scene.Group;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -31,17 +30,12 @@ class Display {
 
     Display(Board board, Ball ball) {
 
-
-//    }
-//    Display(){
-
         //root of game view & adding game components
         root = new Group();
         layout.setCenter(root);
 
         showBoard(board);
         showBall(ball);
-
 
         //Input & Score View
         HBox hBox = new HBox();
