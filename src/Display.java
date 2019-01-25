@@ -33,7 +33,7 @@ class Display {
     BorderPane layout = new BorderPane();
     GraphicsContext gc;
 
-    Display(Board board, Ball ball) {
+    Display(Board board, Score score, Ball ball) {
 
         //root of game view & adding game components
         root = new Group();
@@ -47,7 +47,7 @@ class Display {
         HBox hBox = new HBox();
         hBox.setSpacing(100);
         hBox.getChildren().add(resetButton);
-        hBox.getChildren().add(scoreView);
+        hBox.getChildren().add(score.text);
         hBox.getChildren().add(playButton);
 
         layout.setBottom(hBox);

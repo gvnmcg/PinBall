@@ -42,13 +42,7 @@ public class Main extends Application {
         //Start Button + Switch Scenes button action
         Button startBtn = new Button("Play Ball!");
         startBtn.setOnAction(e -> window.setScene(gameScene));
-        startBtn.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                System.out.println("what");
-                window.setScene(gameScene);
-            }
-        });
+
         introRoot.getChildren().add(startBtn);
 
         window.setScene(gameScene);

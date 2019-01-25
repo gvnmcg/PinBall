@@ -1,12 +1,14 @@
 import javafx.animation.AnimationTimer;
 import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
 /**
  * Controls the Game
  */
 class GameLoop {
+
+    Board board = new Board();
+    Score score = new Score();
 
     //The only moving part, ball, uses a
     //timer calling move and its redisplay
@@ -15,11 +17,8 @@ class GameLoop {
     AnimationTimer animationTimer;
     boolean running = false;
 
-    Board board = new Board();
-    Score score = new Score();
-
     //Layout and Graphical components
-    Display display = new Display(board, ball);
+    Display display = new Display(board, score, ball);
 
 
     GameLoop(){
@@ -32,7 +31,9 @@ class GameLoop {
             public void handle(long now){
                 ball.move();
                 display.updateBall(ball);
-                board.detectHit(ball);
+                if(board.detectHit(ball)){
+                    score.hitTileCount();
+                }
             }
         };
 
