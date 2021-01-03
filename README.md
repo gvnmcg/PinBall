@@ -2,12 +2,16 @@
 by Gavin McGuire
 for UNM CS351
 
-##How to use
+##How to play
 
-* click on jar file to start game
-* you can move the ball around by just moving in on the window
-* clink on the window or "play" to lanch the ball.
-* click "reset" button to reset ball, board and score.
+* Click on jar file to start game.
+  
+
+* You can move the ball around by just moving in on the window.
+* Clink on the window or "play" / launch the ball.
+* Click "reset" button to reset ball, board, and score.
+
+![](doc/pinballScreenshot.PNG)
 
 ## Testing and Debugging
 
