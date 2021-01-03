@@ -1,8 +1,8 @@
-#PinBall
+# PinBall
 by Gavin McGuire
 for UNM CS351
 
-##How to play
+## How to play
 
 * Click on jar file to start game.
   
@@ -15,9 +15,4 @@ for UNM CS351
 
 ## Testing and Debugging
 
-*tested and debugged in intellij
-
-## Known Issues
-
-*when the ball bounces off a wall it shakes the screen. Although unintended it has a cool effect.
-*the score does not reset immediately, upon reset. I like it so I can see my last score after I clicked it.
+* Tested and debugged in intellij
