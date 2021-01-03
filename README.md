@@ -13,6 +13,15 @@ for UNM CS351
 
 ![](doc/pinballScreenshot.PNG)
 
-## Testing and Debugging
+## Development
 
 * Tested and debugged in intellij
+* Simple GameLoop structure
+    - `Board` organizes `Tiles` that light up to indicate targets.
+    - `Ball` is controlled and set in play.
+      - Tracks position
+      - Tracks misses
+    - `Score` is updated according to ball hits and misses.
+    - `Display` javafx draws all the components.
+
+![](doc/PinBallDesignDiagram.jpg)
